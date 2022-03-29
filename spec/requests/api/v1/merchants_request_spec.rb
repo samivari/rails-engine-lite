@@ -20,4 +20,20 @@ RSpec.describe 'Merchants API' do
       expect(merchant[:name]).to be_a(String)
     end
   end
+
+  it 'sends info for a single merchant' do
+    merchant_1 = Merchant.create!(name: 'Primal Peas')
+    get "/api/v1/merchants/#{merchant_1.id}"
+
+    expect(response).to be_successful
+
+    merchant = JSON.parse(response.body, symbolize_names: true)
+
+    expect(merchant).to have_key(:id)
+    expect(merchant[:id]).to be_a(Integer)
+
+    expect(merchant).to have_key(:name)
+    expect(merchant[:name]).to be_a(String)
+    expect(merchant[:name]).to eq('Primal Peas')
+  end
 end
