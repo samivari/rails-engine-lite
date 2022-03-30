@@ -6,4 +6,16 @@ class Api::V1::ItemsController < ApplicationController
   def show
     render json: Item.find(params[:id])
   end
+
+  def create
+    render jason: Item.create!(item_params)
+  end
+
+  def update; end
+
+  private
+
+  def item_params
+    params.permit(:name, :description, :unit_price, :merchant_id)
+  end
 end

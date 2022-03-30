@@ -55,4 +55,20 @@ RSpec.describe 'Item API' do
     expect(item).to have_key(:merchant_id)
     expect(item[:merchant_id]).to be_an(Integer)
   end
+
+  it 'create an item' do
+    expect(Item.all.count).to eq(0)
+    merchant = create(:merchant)
+    post '/api/v1/items',
+         params: { name: 'New Item', description: 'Its an item', unit_price: 12, merchant_id: merchant.id }
+    expect(Item.all.count).to eq(1)
+  end
+
+  it 'can edit an item' do
+    merchant = create(:merchant)
+    item = create(:item, name: 'Cheese', merchant_id: merchant.id)
+    patch "/api/v1/items/#{item.id}", params: { name: 'Chicken' }
+    item = JSON.parse(response.body, symbolize_names: true)
+    expect(item[:name]).to eq('Chicken')
+  end
 end
