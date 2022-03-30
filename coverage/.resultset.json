@@ -1,6 +1,44 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/samanthaivari/turing/3mod/rails-engine/spec/requests/api/v1/merchant_items_request_spec.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          2,
+          2,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          2,
+          2,
+          null,
+          2,
+          2,
+          null,
+          2,
+          2,
+          null,
+          2,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/samanthaivari/turing/3mod/rails-engine/spec/requests/api/v1/merchants_request_spec.rb": {
         "lines": [
           1,
@@ -52,14 +90,20 @@
           null
         ]
       },
-      "/Users/samanthaivari/turing/3mod/rails-engine/app/models/application_record.rb": {
+      "/Users/samanthaivari/turing/3mod/rails-engine/app/controllers/api/v1/items_controller.rb": {
         "lines": [
           1,
           1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
           null
         ]
       },
-      "/Users/samanthaivari/turing/3mod/rails-engine/app/models/item.rb": {
+      "/Users/samanthaivari/turing/3mod/rails-engine/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
@@ -72,12 +116,6 @@
           1,
           1,
           null,
-          null
-        ]
-      },
-      "/Users/samanthaivari/turing/3mod/rails-engine/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
           null
         ]
       },
@@ -95,6 +133,6 @@
         ]
       }
     },
-    "timestamp": 1648593134
+    "timestamp": 1648657921
   }
 }
