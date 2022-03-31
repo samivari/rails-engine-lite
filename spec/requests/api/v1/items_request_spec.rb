@@ -79,4 +79,17 @@ RSpec.describe 'Item API' do
     item = JSON.parse(response.body, symbolize_names: true)
     expect(item[:data][:attributes][:name]).to eq('Chicken')
   end
+
+  it 'sends info to delete a item' do
+    merchant = create(:merchant)
+    create_list(:item, 6, merchant_id: merchant.id)
+    expect(Item.count).to eq(6)
+    item = Item.all.first
+
+    delete "/api/v1/items/#{item.id}"
+
+    expect(response).to be_successful
+    expect(Item.count).to eq(5)
+    expect { Item.find(item.id) }.to raise_error(ActiveRecord::RecordNotFound)
+  end
 end
