@@ -19,20 +19,26 @@ RSpec.describe 'Item API' do
 
     all_items = JSON.parse(response.body, symbolize_names: true)
 
-    expect(all_items.count).to eq(6)
+    expect(all_items[:data].count).to eq(6)
 
-    all_items.each do |item|
-      expect(item).to have_key(:name)
-      expect(item[:name]).to be_a(String)
+    all_items[:data].each do |item|
+      expect(item).to have_key(:id)
+      expect(item[:id]).to be_a(String)
 
-      expect(item).to have_key(:description)
-      expect(item[:description]).to be_a(String)
+      expect(item).to have_key(:type)
+      expect(item[:type]).to eq('item')
 
-      expect(item).to have_key(:unit_price)
-      expect(item[:unit_price]).to be_a(Float)
+      expect(item[:attributes]).to have_key(:name)
+      expect(item[:attributes][:name]).to be_a(String)
 
-      expect(item).to have_key(:merchant_id)
-      expect(item[:merchant_id]).to be_an(Integer)
+      expect(item[:attributes]).to have_key(:description)
+      expect(item[:attributes][:description]).to be_a(String)
+
+      expect(item[:attributes]).to have_key(:unit_price)
+      expect(item[:attributes][:unit_price]).to be_a(Float)
+
+      expect(item[:attributes]).to have_key(:merchant_id)
+      expect(item[:attributes][:merchant_id]).to be_an(Integer)
     end
   end
 
@@ -46,14 +52,16 @@ RSpec.describe 'Item API' do
 
     item = JSON.parse(response.body, symbolize_names: true)
 
-    expect(item).to have_key(:name)
-    expect(item[:name]).to be_a(String)
-    expect(item).to have_key(:description)
-    expect(item[:description]).to be_a(String)
-    expect(item).to have_key(:unit_price)
-    expect(item[:unit_price]).to be_a(Float)
-    expect(item).to have_key(:merchant_id)
-    expect(item[:merchant_id]).to be_an(Integer)
+    expect(item[:data]).to have_key(:id)
+    expect(item[:data][:id]).to be_a(String)
+    expect(item[:data][:attributes]).to have_key(:name)
+    expect(item[:data][:attributes][:name]).to be_a(String)
+    expect(item[:data][:attributes]).to have_key(:description)
+    expect(item[:data][:attributes][:description]).to be_a(String)
+    expect(item[:data][:attributes]).to have_key(:unit_price)
+    expect(item[:data][:attributes][:unit_price]).to be_a(Float)
+    expect(item[:data][:attributes]).to have_key(:merchant_id)
+    expect(item[:data][:attributes][:merchant_id]).to be_an(Integer)
   end
 
   it 'create an item' do
@@ -64,11 +72,11 @@ RSpec.describe 'Item API' do
     expect(Item.all.count).to eq(1)
   end
 
-  xit 'can edit an item' do
+  it 'can edit an item' do
     merchant = create(:merchant)
     item = create(:item, name: 'Cheese', merchant_id: merchant.id)
     patch "/api/v1/items/#{item.id}", params: { name: 'Chicken' }
     item = JSON.parse(response.body, symbolize_names: true)
-    expect(item[:name]).to eq('Chicken')
+    expect(item[:data][:attributes][:name]).to eq('Chicken')
   end
 end
