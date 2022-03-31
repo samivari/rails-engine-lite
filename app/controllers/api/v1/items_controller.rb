@@ -15,6 +15,10 @@ class Api::V1::ItemsController < ApplicationController
     json_response(Item.create!(item_params), 201)
   end
 
+  def destroy
+    json_response(Item.find(params[:id]).delete)
+  end
+
   private
 
   def item_params
