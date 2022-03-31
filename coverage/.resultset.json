@@ -6,7 +6,6 @@
           1,
           1,
           2,
-          null,
           2,
           2,
           null,
@@ -16,10 +15,12 @@
           1,
           null,
           1,
-          null,
           1,
           null,
           1,
+          2,
+          2,
+          null,
           2,
           2,
           null,
@@ -56,15 +57,13 @@
           1,
           null,
           1,
+          null,
+          1,
           5,
           5,
           null,
-          5,
-          5,
           null,
           null,
-          null,
-          1,
           1,
           1,
           null,
@@ -72,7 +71,6 @@
           null,
           1,
           null,
-          1,
           1,
           null,
           1,
@@ -131,6 +129,16 @@
           null
         ]
       },
+      "/Users/samanthaivari/turing/3mod/rails-engine/app/serializers/item_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/samanthaivari/turing/3mod/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
@@ -143,8 +151,18 @@
           null,
           null
         ]
+      },
+      "/Users/samanthaivari/turing/3mod/rails-engine/app/serializers/merchant_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1648672342
+    "timestamp": 1648687664
   }
 }

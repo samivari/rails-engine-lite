@@ -8,7 +8,7 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def create
-    render jason: Item.create!(item_params)
+    render json: Item.create!(item_params)
   end
 
   def update; end

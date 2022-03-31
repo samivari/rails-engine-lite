@@ -8,32 +8,29 @@ RSpec.describe 'Merchants API' do
 
     expect(response).to be_successful
 
-    merchants = JSON.parse(response.body, symbolize_names: true)
+    parsed_response = JSON.parse(response.body, symbolize_names: true)
+
+    merchants = parsed_response[:data]
 
     expect(merchants.count).to eq(5)
 
     merchants.each do |merchant|
-      expect(merchant).to have_key(:id)
-      expect(merchant[:id]).to be_a(Integer)
-
-      expect(merchant).to have_key(:name)
-      expect(merchant[:name]).to be_a(String)
+      expect(merchant[:attributes]).to have_key(:name)
+      expect(merchant[:attributes][:name]).to be_a(String)
     end
   end
 
   it 'sends info for a single merchant' do
-    merchant_1 = Merchant.create!(name: 'Primal Peas')
-    get "/api/v1/merchants/#{merchant_1.id}"
+    merchant = create(:merchant, name: 'Primal Peas')
+
+    get "/api/v1/merchants/#{merchant.id}"
 
     expect(response).to be_successful
 
-    merchant = JSON.parse(response.body, symbolize_names: true)
+    parsed_response = JSON.parse(response.body, symbolize_names: true)
 
-    expect(merchant).to have_key(:id)
-    expect(merchant[:id]).to be_a(Integer)
-
-    expect(merchant).to have_key(:name)
-    expect(merchant[:name]).to be_a(String)
-    expect(merchant[:name]).to eq('Primal Peas')
+    expect(parsed_response[:data][:type]).to eq('merchant')
+    expect(parsed_response[:data][:id]).to be_a(String)
+    expect(parsed_response[:data][:attributes][:name]).to eq('Primal Peas')
   end
 end
