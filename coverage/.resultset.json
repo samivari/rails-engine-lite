@@ -153,6 +153,26 @@
           null
         ]
       },
+      "/Users/samanthaivari/turing/3mod/rails-engine/app/controllers/api/v1/item_merchant_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/samanthaivari/turing/3mod/rails-engine/app/serializers/merchant_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/samanthaivari/turing/3mod/rails-engine/app/controllers/api/v1/merchant_items_controller.rb": {
         "lines": [
           1,
@@ -175,18 +195,8 @@
           null,
           null
         ]
-      },
-      "/Users/samanthaivari/turing/3mod/rails-engine/app/serializers/merchant_serializer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1648747073
+    "timestamp": 1648764469
   }
 }
