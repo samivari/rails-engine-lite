@@ -77,6 +77,7 @@ RSpec.describe 'Item API' do
     item = create(:item, name: 'Cheese', merchant_id: merchant.id)
     patch "/api/v1/items/#{item.id}", params: { name: 'Chicken' }
     item = JSON.parse(response.body, symbolize_names: true)
+
     expect(item[:data][:attributes][:name]).to eq('Chicken')
   end
 
@@ -105,5 +106,16 @@ RSpec.describe 'Item API' do
     expect(merchant[:data][:type]).to eq('merchant')
     expect(merchant[:data][:id]).to be_a(String)
     expect(merchant[:data][:attributes][:name]).to eq('Primal Peas')
+  end
+
+  it 'sad path for a single item' do
+    merchant = create(:merchant)
+    id = 181_818_181
+
+    get "/api/v1/items/#{id}"
+
+    expect(response).to_not be_successful
+    sad_response = JSON.parse(response.body, symbolize_names: true)
+    expect(sad_response[:error][:message]).to eq("Couldn't find Item with 'id'=181818181")
   end
 end

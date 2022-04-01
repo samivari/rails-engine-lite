@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-03-31T16:07:49-06:00">2022-03-31T16:07:49-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-03-31T20:41:28-06:00">2022-03-31T20:41:28-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  95.79%
+  100.0%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.34
+         1.27
        </span>
     </span> hits/line
     )
@@ -39,15 +39,15 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>11</b> files in total.
+    <b>12</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>95</b> relevant lines,
-    <span class="green"><b>91</b> lines covered</span> and
-    <span class="red"><b>4</b> lines missed. </span>
+    <b>97</b> relevant lines,
+    <span class="green"><b>97</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
-  95.79%
+  100.0%
 </span>
 )
   </div>
@@ -88,7 +88,7 @@
             <td class="cell--number">14</td>
             <td class="cell--number">14</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.07</td>
+            <td class="cell--number">1.14</td>
             
           </tr>
         
@@ -117,9 +117,20 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#f104412a09e088c2978e27daec24b7ab8655ad46" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">4</td>
             <td class="cell--number">3</td>
-            <td class="cell--number">2</td>
-            <td class="cell--number">2</td>
+            <td class="cell--number">3</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.00</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#b4b6e6933148eca3bafd2781def9b824d05e7f1e" class="src_link" title="app/controllers/concerns/exception_handler.rb">app/controllers/concerns/exception_handler.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">8</td>
+            <td class="cell--number">5</td>
+            <td class="cell--number">5</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -127,12 +138,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#40600287d076936ac47b37fa71c45e754bc268e8" class="src_link" title="app/controllers/concerns/response.rb">app/controllers/concerns/response.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">60.00 %</td>
-            <td class="cell--number">13</td>
-            <td class="cell--number">10</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">9</td>
             <td class="cell--number">6</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">1.80</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.17</td>
             
           </tr>
         
@@ -398,13 +409,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="7">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="7">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    json_response(Item.find(params[:id]))</code>
+            <code class="ruby">    render json: ItemSerializer.new(Item.find(params[:id]))</code>
           </li>
         </div>
       
@@ -492,7 +503,7 @@
 
             
 
-            <code class="ruby">    json_response(Item.create!(item_params), 201)</code>
+            <code class="ruby">    render json: ItemSerializer.new(Item.create(item_params)), status: :created</code>
           </li>
         </div>
       
@@ -536,7 +547,7 @@
 
             
 
-            <code class="ruby">    json_response(Item.find(params[:id]).delete)</code>
+            <code class="ruby">    Item.destroy(params[:id])</code>
           </li>
         </div>
       
@@ -874,8 +885,8 @@
     
 
     <div class="t-line-summary">
-      <b>2</b> relevant lines.
-      <span class="green"><b>2</b> lines covered</span> and
+      <b>3</b> relevant lines.
+      <span class="green"><b>3</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -909,7 +920,137 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="3">
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  include ExceptionHandler</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="b4b6e6933148eca3bafd2781def9b824d05e7f1e">
+  <div class="header">
+    <h3>app/controllers/concerns/exception_handler.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>5</b> relevant lines.
+      <span class="green"><b>5</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">module ExceptionHandler</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  extend ActiveSupport::Concern</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  included do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    rescue_from ActiveRecord::RecordNotFound do |e|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      json_response({ error: { message: e.message } }, :not_found)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="6">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="7">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
             
             
 
@@ -928,8 +1069,8 @@
   <div class="header">
     <h3>app/controllers/concerns/response.rb</h3>
     <h4>
-      <span class="red">
-  60.0%
+      <span class="green">
+  100.0%
 </span>
 
       lines covered
@@ -938,9 +1079,9 @@
     
 
     <div class="t-line-summary">
-      <b>10</b> relevant lines.
+      <b>6</b> relevant lines.
       <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -968,13 +1109,13 @@
 
             
 
-            <code class="ruby">  def json_response(object, status = :ok)</code>
+            <code class="ruby">  def json_response(object, _status = :ok)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="3">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="2" data-linenumber="3">
+            <span class="hits">2</span>
             
 
             
@@ -984,8 +1125,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="4">
-            
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
             
 
             
@@ -995,30 +1136,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="5">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">    elsif object.errors.present?</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="6">
-            
-            
-
-            
-
-            <code class="ruby">      render json: object.errors.messages.to_json, status: 404</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="7">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
             
 
             
@@ -1028,8 +1147,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="8">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
             
 
             
@@ -1039,29 +1158,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="9">
-            
-            
-
-            
-
-            <code class="ruby">    elsif object.instance_of?(Merchant)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="10">
-            
-            
-
-            
-
-            <code class="ruby">      render json: MerchantSerializer.new(object), status: status</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="11">
+          <li class="never" data-hits="" data-linenumber="7">
             
             
 
@@ -1072,7 +1169,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="12">
+          <li class="never" data-hits="" data-linenumber="8">
             
             
 
@@ -1083,7 +1180,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="13">
+          <li class="never" data-hits="" data-linenumber="9">
             
             
 
