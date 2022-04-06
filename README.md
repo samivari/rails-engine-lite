@@ -1,24 +1,16 @@
 # README
+## Overview
+Rails Engine is a service-oriented architecture E-Commerce application that exposes data through API endpoints, for a front-end will consume.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Goals
+Work in a service-oriented architecture, use TDD to build out API endpoints to expose data.
+Use Serializers to format JSON responses.
+Use SQL and ActiveRecord to gather data.
+Account for edge-cases and sad paths.
 
-Things you may want to cover:
+## Gems/Configuration
+- Ruby 2.7.x	SQL	SimpleCov	Git
+- Rails	ActiveRecord	Faker	VSCode
+- RSpec	HTML5	ShouldaMatcher	Postman
+- Pry	Postgresql	FactoryBot	Fast JsonApi
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
